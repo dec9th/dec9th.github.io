@@ -9,8 +9,10 @@ author: santa
 
 *Tested all on Amazon linux with AWS Cloud9 IDE*
 
+
 **uwsgi** 가이드 용으로 Hello world 만 넣고 돌린 `uwsgi`!
 아래와 같이 출력 됩니다.  
+
 ```
 (env) ec2-user:/app/myflask $ uwsgi --http :9090 --wsgi-file run.py 
 *** Starting uWSGI 2.0.18 (64bit) on [Fri Jun 21 10:03:11 2019] ***
