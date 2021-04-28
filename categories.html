@@ -4,23 +4,24 @@ permalink: /categories/
 title: Categories
 ---
 
-<header><h1>{{ include.title | default: page.title }}</h1></header>
+
 <article>
-{% for category in site.categories %}
+    <header><h1>{{ include.title | default: page.title }}</h1></header>
+    {% for category in site.categories %}
 
-    {% capture category_name %}{{ category | first }}{% endcapture %}
-    <p></p>
+        {% capture category_name %}{{ category | first }}{% endcapture %}
+        <p></p>
 
-    <h2>{{ category_name }}</h2>
-    <a name="{{ category_name | slugize }}"></a>
+        <h2>{{ category_name }}</h2>
+        <a name="{{ category_name | slugize }}"></a>
 
-    <ul class="archive">
-    {% for post in site.categories[category_name] %}
-      <li>
-        <h4><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
-      </li>
+        <ul class="archive">
+        {% for post in site.categories[category_name] %}
+        <li>
+            <h4><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
+        </li>
+        {% endfor %}
+        </ul>
+    </div>
     {% endfor %}
-    </ul>
-  </div>
-{% endfor %}
 </article>
