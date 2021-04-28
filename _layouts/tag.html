@@ -22,7 +22,7 @@ layout: default
                 {% capture font_size %}{{tag_size | times: site.tags.size | divided_by:site.tags.size | plus: 14 }}{% endcapture %}
 
                 <div class="tagname">
-                    <a href="/tags/archives#{{tag_name}}" style="font-size:{{font_size}}px">{{ tag_name }}</a>
+                    <a href="/tags/archives#{{tag_name}}" >{{ tag_name }}</a>
                 </div>
             {% endfor %}
         </div> 
