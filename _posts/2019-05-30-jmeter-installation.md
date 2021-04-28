@@ -37,8 +37,8 @@ https://github.com/ojdkbuild/ojdkbuild
 아래 링크는 제가 다운로드 받은 파일입니다.  
 https://github.com/ojdkbuild/ojdkbuild/releases/download/1.8.0.212-1/java-1.8.0-openjdk-1.8.0.212-1.b04.ojdkbuild.windows.x86_64.zip
 
-
 그리고 설치는 Default로 쭉 `Next` to `Finish` 합니다.
+
 
 ## OpenJDK 설치 과정
 
@@ -71,6 +71,7 @@ OpenJDK Runtime Environment 19.3 (build 12.0.1-ojdkbuild+12)
 OpenJDK 64-Bit Server VM 19.3 (build 12.0.1-ojdkbuild+12, mixed mode, sharing)
 
 ```
+
 
 # 02. Jmeter 설치
 
