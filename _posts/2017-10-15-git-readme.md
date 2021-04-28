@@ -2,7 +2,8 @@
 layout: post
 title: "basic git command by github"
 featured-img: logo-git
-categories: [Sample, git]
+categories: [git]
+comments: true
 ---
 
 …or create a new repository on the command line
