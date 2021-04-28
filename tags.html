@@ -4,8 +4,6 @@ layout: default
 sitemap: false
 ---
 
-{% raw %}
-
 {% assign tags = site.tags | sort %}
 {% for tag in tags %}
 <h2>{{ tag[0]}} </h2>
@@ -17,4 +15,3 @@ sitemap: false
     {% endfor %}
 </ul>
 {% endfor %}
-{% endraw %}
