@@ -33,7 +33,7 @@ $ redis-stat 127.0.0.1:6379 1
 
 위 명령 실행 시 아래와 같이 출력됩니다.
 
-![run_redis-stat](http://dec9th.github.io/assets/posts/2017-11-02-redis-stat/run_redis-stat.png "run_redis-stat")
+![run_redis-stat](/assets/posts/2017-11-02-redis-stat/run_redis-stat.png "run_redis-stat")
 
 ## 2. 추가 옵션 사항
 
