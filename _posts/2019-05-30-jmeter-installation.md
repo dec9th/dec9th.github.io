@@ -177,3 +177,4 @@ Bot 단위 설정을 위해 아래와 같이 `Thread Group`을 선택 합니다.
 [Official] https://jmeter.apache.org/  
 http://jdk.java.net/12/  
 https://github.com/ojdkbuild/ojdkbuild  
+https://story.stevenlab.io/207 : 지표 등 용어와 개념 설명이 잘되어 있어서 추천 합니다.
