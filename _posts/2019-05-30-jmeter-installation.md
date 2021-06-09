@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Jmeter 설치"
-categories: ["jmeter,java"]
+categories: ["jmeter"]
 featured-img: logo-redis
 ---
 
