@@ -147,3 +147,7 @@ done
 종종 찾아보는 `google shell style guide` 
 신규로 작성할 때 마다 다시 보고 작성함. ㅠㅠ 외워지지가 않네
 
+
+# Reference
+
+- https://google.github.io/styleguide/shellguide.html
