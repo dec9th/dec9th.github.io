@@ -18,7 +18,13 @@ Docker version 20.10.6, build 370c289
 $ docker run -it ubuntu
 
 <output>
-root@df19a6804a79:/# ls
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+c549ccf8d472: Pull complete 
+Digest: sha256:aba80b77e27148d99c034a987e7da3a287ed455390352663418c0f2ed40417fe
+Status: Downloaded newer image for ubuntu:latest
+root@cb0e16540f1f:/# CTRL+P+Q or CTRL+ALT+P+Q(in AWS Cloud9)
+
 ```
 옵션 설명
 - `-i` : interactive
@@ -31,7 +37,111 @@ docker run은 아래 명령을 수반합니다. (생략 역시 가능)
 - `docker attach` : container 내 접속합니다.
 
 
-컨테이너 정지하지 않고 빠져 나올거라면 CTRL+P,Q를 입력하면 됩니다.
+컨테이너 정지하지 않고 빠져 나올거라면 `CTRL+P+Q`(or `CTRL+P+Q`)를 입력하면 됩니다.
+그냥 나올 경우 꺼지게 되나 테스트 중엔 전혀 상관없습니다. 
+
+
+
+## docker ps
+
+ps 명령은 현재 실행 중인 container만 출력하며 `-a` 옵션을 포함하면 꺼져있는 것 포함 전체 출력됩니다.
+
+
+```
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+cb0e16540f1f   ubuntu    "bash"    32 seconds ago   Up 31 seconds             goofy_shtern
+```
+
+
+## docker pull 
+```
+$ docker pull redis
+
+<output>
+Using default tag: latest
+latest: Pulling from library/redis
+69692152171a: Pull complete 
+a4a46f2fd7e0: Pull complete 
+bcdf6fddc3bd: Pull complete 
+2902e41faefa: Pull complete 
+df3e1d63cdb1: Pull complete 
+fa57f005a60d: Pull complete 
+Digest: sha256:685691f0693886db75af70351ab961bd98ddacf4afd64206e145db37faaf9d57
+Status: Downloaded newer image for redis:latest
+docker.io/library/redis:latest
+```
+
+
+## docker create
+
+```
+$ docker create redis
+
+<output>
+7262932866cc5f0ed62eef73f3c71c1b730357026d7750833d08bff176985a17
+
+$ docker ps -a
+
+<output>
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+7262932866cc   redis     "docker-entrypoint.s…"   5 seconds ago   Created                  upbeat_heyrovsky
+```
+
+
+## docker start
+`CONTAINER ID` 혹은 `NAMES` 를 입력하면 container가 구동됩니다.
+```
+$ docker start 726
+
+<output>
+726
+
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS      NAMES
+7262932866cc   redis     "docker-entrypoint.s…"   2 minutes ago    Up 8 seconds    6379/tcp   upbeat_heyrovsky
+cb0e16540f1f   ubuntu    "bash"                   10 minutes ago   Up 10 minutes              goofy_shtern
+```
+
+
+## docker stop
+`CONTAINER ID` 혹은 `NAMES` 를 입력하면 container가 중지됩니다.
+```
+$ docker stop 726
+
+<output>
+726
+
+$ docker ps -a
+
+<output>
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                      PORTS     NAMES
+7262932866cc   redis     "docker-entrypoint.s…"   3 minutes ago    Exited (0) 39 seconds ago             upbeat_heyrovsky
+cb0e16540f1f   ubuntu    "bash"                   11 minutes ago   Up 11 minutes                         goofy_shtern
+```
+
+## docker exec 
+*꺼져 있으면 키시고요*
+```
+$ docker exec -it 726 /bin/bash
+<output>
+root@7262932866cc:/data# 
+```
+
+
+
+
+## docker rm 
+
+`stop`과 output이 동일 합니다.
+```
+docker rm -f 726
+
+<output>
+726
+```
+`-f` : running 중인 Container도 강제 종료하고 삭제합니다.
+
 
 
 ## docker run with port
@@ -52,89 +162,6 @@ Status: Downloaded newer image for redis:latest
 054b9bc56938a2501be3bf12db0ca2de7fe349d15e262a139b2ad17645bdea09
 ```
 
-
-## docker pull 
-```
-docker pull ubuntu
-
-<output>
-Using default tag: latest
-latest: Pulling from library/ubuntu
-345e3491a907: Pull complete
-57671312ef6f: Pull complete
-5e9250ddb7d0: Pull complete
-Digest: sha256:adf73ca014822ad8237623d388cedf4d5346aa72c270c5acc01431cc93e18e2d
-Status: Downloaded newer image for ubuntu:latest
-docker.io/library/ubuntu:latest
-```
-
-
-
-## docker create
-
-```
-$ docker create ubuntu
-
-<output>
-Unable to find image 'ubuntu:latest' locally
-latest: Pulling from library/ubuntu
-345e3491a907: Pull complete
-57671312ef6f: Pull complete
-5e9250ddb7d0: Pull complete
-Digest: sha256:adf73ca014822ad8237623d388cedf4d5346aa72c270c5acc01431cc93e18e2d
-Status: Downloaded newer image for ubuntu:latest
-baf2ae29717cd7888b23e237be7b6ad8155852a2d0ae83fa373d8bdfecedcf7a
-```
-
-
-## docker start
-```
-$ docker start cc865167e54b
-cc865167e54b
-```
-
-
-## docker stop
-
-```
-$ docker stop df19a6804a79
-
-<output>
-df19a6804a79
-```
-
-
-## docker ps
-
-ps 명령은 현재 실행 중인 container만 출력하며 `-a` 옵션을 포함하면 전체 출력됩니다.
-
-```
-docker ps
-
-<output>
-CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS          PORTS                                       NAMES
-cc865167e54b   redis     "docker-entrypoint.s…"   3 hours ago   Up 40 minutes   0.0.0.0:6379->6379/tcp, :::6379->6379/tcp   epic_wiles
-
-$docker ps -a
-
-<output>
-CONTAINER ID   IMAGE                           COMMAND                  CREATED          STATUS                     PORTS                                       NAMES
-df19a6804a79   ubuntu                          "/bin/bash"              3 minutes ago    Exited (0) 7 seconds ago                                               naughty_haibt
-054b9bc56938   redis                           "docker-entrypoint.s…"   14 minutes ago   Up 14 minutes              0.0.0.0:6379->6379/tcp, :::6379->6379/tcp   quirky_heisenberg
-e8536c975567   docker/getting-started:latest   "/docker-entrypoint.…"   2 weeks ago      Exited (255) 13 days ago   80/tcp                                      nice_neumann
-ce20cff225ca   dec9th/jekyll-theme:latest      "/usr/jekyll/bin/ent…"   2 weeks ago      Exited (255) 2 weeks ago   0.0.0.0:4000->4000/tcp, 35729/tcp           findicator
-```
-
-## docker rm 
-
-`stop`과 output이 동일 합니다.
-```
-docker rm -f df19a6804a79
-
-<output>
-df19a6804a79
-```
-`-f` : running 중인 Container도 강제 종료하고 삭제합니다.
 
 
 ## docker image ls
