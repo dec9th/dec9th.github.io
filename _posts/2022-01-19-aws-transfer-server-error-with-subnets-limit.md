@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "AWS_TRANSER_SERVER Cannot specify more than 3 SubnetIds"
-categories: ["sftp]
+categories: ["sftp", "error"]
 ---
 
 ```
