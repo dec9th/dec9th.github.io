@@ -9,7 +9,7 @@ categories: ["msk"]
  - 4개 에서 3개로 줄일 때 발생한 로그
 ```
 ╷
-│ Error: error updating MSK Cluster (arn:aws:kafka:ap-northeast-2:012345678910:cluster/membership-msk-weapne2/1c2a0c6a-b411-45bc-9056-2b395a46e740-2) broker count: BadRequestException: The number of broker nodes cannot be reduced.
+│ Error: error updating MSK Cluster (arn:aws:kafka:ap-northeast-2:012345678910:cluster/my-msk-weapne2/1c2a0c6a-b411-45bc-9056-2b395a46e740-2) broker count: BadRequestException: The number of broker nodes cannot be reduced.
 │ {
 │   RespMetadata: {
 │     StatusCode: 400,
