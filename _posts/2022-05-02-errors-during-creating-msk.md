@@ -32,6 +32,7 @@ categories: ["msk"]
 │   Message_: "The number of broker nodes must be a multiple of Availability Zones in the Client Subnets parameter."
 ```
 
+---
 # 그 외 카프카 국룰들... 
 
 ## 1. 당연히 Broker node 수량보다 replication.factor가 높을 수 없다.
