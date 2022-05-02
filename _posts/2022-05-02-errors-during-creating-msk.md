@@ -21,7 +21,7 @@ categories: ["msk"]
 │
 ```
 
-# Broker node 수량은 설정한 subnet의 곱절로 추가가 가능하다.
+# Broker node 수량은 설정한 subnet의 배수로 추가가 가능하다.
 - 보통 zookeeper 때문에 3개로 하는데 개발은 1,2 개로 설정해줘도 좋다.
 - production의 경우 역시나 기본 kafka official 등 zookeeper 설치시 3개의 서버를 요하기 때문에 3중화를 기본으로 가져가지만 서브넷을 2~3개로 조율해서 2배수로 할지 3배수로 할지 미리 결정해두는 것이 좋다. 
 - AWS의 AZ가 많은 virginia에 모든 AZ에 각 subnet을 쓸 경우 요금 폭탄 각 (terraform을 쓴다면 적당히 `slice` or `range` 사용)
