@@ -31,13 +31,14 @@ categories: ["msk"]
 │   Message_: "The number of broker nodes must be a multiple of Availability Zones in the Client Subnets parameter."
 ```
 
-# 그 외 카프카 국룰 
+# 그 외 카프카 국룰들... 
 
-## 당연히 Broker node 수량보다 replication_factor가 높을 수 없다.
-그럼에도 불구하고 aws msk 생성되는데는 지장 없다.
+## 1. 당연히 Broker node 수량보다 replication.factor가 높을 수 없다.
+- 그럼에도 불구하고 aws msk 생성되는데는 지장 없다.
 
-## kakfa는 다른 것보다 retention.hour가 종요하다.
-잘못 두면 디스크 풀차는 것을 볼 수 있으니 미리 잘 산정할 필요가 있다.
+## 2. kakfa는 다른 것보다 retention.hour가 중요하다.
+- 잘못 두면 디스크 풀차는 것을 볼 수 있으니 미리 잘 산정할 필요가 있다.
+- aws 에서는 증설 가능하고 최소 2중화(replication.factor) 이상이라면 무중단도 가능하다.
 
 
 
