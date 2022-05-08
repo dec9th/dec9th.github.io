@@ -2,6 +2,7 @@
 layout: post
 title:  "eks에서 alb 설치가 안되는 케이스 - unable to discover at least one subnet "
 categories: ["eks"]
+tags: ["eks"]
 ---
 
 
